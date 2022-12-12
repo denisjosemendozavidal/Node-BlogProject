@@ -1,14 +1,12 @@
-const JwtStrategy = require('passport-jwt').Strategy;
-const Extractjwt = require('passport-jwt').ExtractJwt;
-
+const JwtStrategy = require('passport-jwt').Strategy; 
+const Extractjwt = require('passport-jwt').ExtractJwt; 
 const passport = require('passport')
-
-const jwtSecrete = require('../../config').api.jwtSecret
+const jwtSecret = require('../../config').api.jwtSecret 
 const { findUserById } = require('../users/users.controllers')
 
     const options = {
-        jwtFromRequest : Extractjwt.fromAuthHeaderWithScheme('jwt'),
-        secreteOrKey : jwtSecrete,
+        jwtFromRequest : Extractjwt.fromAuthHeaderWithScheme('jwt'), 
+        secretOrKey : jwtSecret,  
     }
 
     passport.use(
@@ -31,3 +29,4 @@ const { findUserById } = require('../users/users.controllers')
 
 
 module.exports = passport
+
